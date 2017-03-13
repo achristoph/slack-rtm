@@ -1,0 +1,14 @@
+<h4>Slack Messages</h4>
+Slack URL: <input type="text" [(ngModel)]="SLACK_URL" size="125" />
+<button (click)="connect()">Connect</button>
+<p>{{URL}}</p>
+<select #selectReview (change)="filter($event.target.value)">
+    <option value="">All</option>
+    <option value="false">Unreviewed</option>
+    <option value="true">Reviewed</option>
+</select>
+<ol class="messages">
+    <li *ngFor="let msg of (messages|messagePipe:selectReview.value)">
+        <input type="checkbox" [(ngModel)]="msg.reviewed"> {{ msg.text }}
+    </li>
+</ol>
