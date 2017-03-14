@@ -24,7 +24,7 @@ export class SlackComponent {
 			if (this.messages.length == this.MAX_MESSAGE) {
 				this.messages.shift();
 			}
-			this.messages = [...this.messages,message];
+			this.messages = [...this.messages, message];
 		});
 	}
 }

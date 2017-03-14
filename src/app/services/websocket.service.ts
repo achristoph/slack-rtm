@@ -9,7 +9,7 @@ export class WebSocketService {
     private subject: Subject<MessageEvent>;
     /**
      * Create a new Subject if it does not exist, reuse otherwise
-     * @param url - Websocket URL to connect
+     * @param url - WebSocket URL to connect
      */
     public connect(url: string): Subject<MessageEvent> {
         if (!this.subject) {
@@ -18,6 +18,10 @@ export class WebSocketService {
         return this.subject;
     }
 
+    /**
+     * Bind a Subject to the websocket as the data source
+     * @param url - WebSocket URL to connect
+     */
     private create(url: string): Subject<MessageEvent> {
         let ws = new WebSocket(url);
 
